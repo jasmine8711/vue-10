@@ -1,14 +1,17 @@
 <template>
-  <Heros />
+  <AppHeader />
+  <div class="w-full flex">
+    <router-view />
+  </div>
 </template>
 
 <script>
-import Heros from "./components/Heros.vue";
+import AppHeader from "./components/AppHeader.vue";
 
 export default {
   name: "App",
   components: {
-    Heros,
+    AppHeader,
   },
 };
 </script>
