@@ -3,6 +3,7 @@ import Heros from "./components/Heros.vue";
 import Calendar from "./components/Calendar.vue";
 import Home from "./components/Home.vue";
 import MarkDown from "./components/MarkDown.vue";
+import Slider from "./components/Slider.vue";
 
 const routes = [
     {
@@ -25,6 +26,11 @@ const routes = [
         name: "calendar",
         component: Calendar,
     },
+    {
+        path: "/slider",
+        name: "slider",
+        component: Slider,
+    }
 ];
 
 const router = createRouter({
