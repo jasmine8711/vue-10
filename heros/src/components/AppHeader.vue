@@ -7,9 +7,11 @@
       :to="item.to"
       >{{ item.title }}</router-link
     >
+    <button class="mx-2" @click="$emit('open-login-modal')">LOGIN</button>
   </nav>
 </template>
 <script>
+import firebase from "../utilities/firebase";
 export default {
   data() {
     return {
@@ -26,6 +28,21 @@ export default {
         { title: "Tensorflow", to: "/tensorflow" },
       ],
     };
+  },
+  computed: {
+    isLoggedIn() {
+      return this.$store.state.isLoggedIn;
+    },
+  },
+  methods: {
+    logout() {
+      firebase.auth().signOut();
+      // .then((res) => {})
+      // .catch((e) => {});
+    },
+    openLogin() {
+      this.$store.commit("setLoginModal", true);
+    },
   },
 };
 </script>

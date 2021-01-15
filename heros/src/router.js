@@ -4,6 +4,7 @@ import Calendar from "./components/Calendar.vue";
 import Home from "./components/Home.vue";
 import MarkDown from "./components/MarkDown.vue";
 import Slider from "./components/Slider.vue";
+import Calculator from "./components/Calculator.vue";
 
 const routes = [
     {
@@ -30,6 +31,11 @@ const routes = [
         path: "/slider",
         name: "slider",
         component: Slider,
+    },
+    {
+        path: "/calculator",
+        name: "calculator",
+        component: Calculator,
     }
 ];
 
