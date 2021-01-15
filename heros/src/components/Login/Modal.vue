@@ -7,12 +7,10 @@
     <div class="flex h-full">
       <div class="z-30 m-auto bg-white p-2 rounded shadow w-10/12 md:w-1/3">
         <div class="p-2 border">
-          <h1 class="text-2xl">
+          <h1 class="text-3xl">
             <slot name="title"></slot>
           </h1>
-          <main>
-            <slot name="body"></slot>
-          </main>
+          <p class="text-purple-500"><slot name="body"></slot></p>
         </div>
       </div>
     </div>
