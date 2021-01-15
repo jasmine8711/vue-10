@@ -5,6 +5,7 @@ import Home from "./components/Home.vue";
 import MarkDown from "./components/MarkDown.vue";
 import Slider from "./components/Slider.vue";
 import Calculator from "./components/Calculator.vue";
+import ReuseableModal from "./components/ReuseableModal.vue";
 
 const routes = [
     {
@@ -36,6 +37,11 @@ const routes = [
         path: "/calculator",
         name: "calculator",
         component: Calculator,
+    },
+    {
+        path: "/resuseable-modal",
+        name: "resuseable-modal",
+        component: ReuseableModal,
     }
 ];
 

@@ -1,18 +1,17 @@
 <template>
-  <section class="flex w-full bg-gray-800 h-screen">
+  <section class="flex w-full bg-white h-screen">
     <div class="m-auto">
       <div>
-        <h1 class="text-3xl text-center text-yellow-300">Calculator</h1>
-        <small class="text-gray-100"
+        <h1 class="text-3xl text-center text-yellow-600">Calculator</h1>
+        <small class="text-gray-700"
           >You can fully use keyboard to calculate</small
         >
       </div>
-      <p
-        class="text-3xl text-right border mt-10 w-56 h-10 overflow-x-scroll"
-        style="direction: rtl"
-      >
+      <br />
+      <p class="border" style="direction: rtl">
         {{ currentNum }}
       </p>
+
       <div class="h-10">
         <small v-if="selectedOperation"
           >{{ prevNum }} {{ selectedOperation }} {{ currentNum }}</small
@@ -121,7 +120,7 @@
 </template>
 <script>
 import { ref } from "vue";
-import useWindowEvent from "../utilities/composition/useWindowEvent";
+import { onMounted, onUnmounted } from "vue";
 export default {
   setup() {
     const operations = ["+", "-", "*", "/"];
@@ -164,9 +163,12 @@ export default {
     function sum() {
       currentNum.value = +prevNum.value + +currentNum.value;
     }
-    const clear = () => (currentNum.value = "");
+
     const handleKeydown = (e) => pressed(e.key);
-    useWindowEvent("keydown", handleKeydown);
+    onMounted(() => window.addEventListener("keydown", handleKeydown));
+    onUnmounted(() => window.removeEventListener("keydown", handleKeydown));
+    const clear = () => (currentNum.value = "");
+
     return { currentNum, pressed, selectedOperation, prevNum };
   },
 };
