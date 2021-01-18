@@ -51,7 +51,7 @@
 
 <script>
 import firebase from "../utilities/firebase";
-import GoogleLogin from "./Login/GoogleLogin";
+import GoogleLogin from "../components/Login/GoogleLogin";
 export default {
   components: { GoogleLogin },
   computed: {
@@ -61,8 +61,8 @@ export default {
   },
   data() {
     return {
-      email: "jasmine@mao.com",
-      password: "jasmine",
+      email: "user1@gmail.com",
+      password: "password",
       isLoading: false,
     };
   },

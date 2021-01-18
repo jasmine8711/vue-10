@@ -120,7 +120,7 @@
 </template>
 <script>
 import { ref } from "vue";
-import { onMounted, onUnmounted } from "vue";
+import useWindowEvent from "../utilities/composition/useWindowEvent";
 export default {
   setup() {
     const operations = ["+", "-", "*", "/"];
@@ -163,11 +163,9 @@ export default {
     function sum() {
       currentNum.value = +prevNum.value + +currentNum.value;
     }
-
-    const handleKeydown = (e) => pressed(e.key);
-    onMounted(() => window.addEventListener("keydown", handleKeydown));
-    onUnmounted(() => window.removeEventListener("keydown", handleKeydown));
     const clear = () => (currentNum.value = "");
+    const handleKeydown = (e) => pressed(e.key);
+    useWindowEvent("keydown", handleKeydown);
 
     return { currentNum, pressed, selectedOperation, prevNum };
   },

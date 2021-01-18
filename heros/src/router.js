@@ -6,6 +6,7 @@ import MarkDown from "./components/MarkDown.vue";
 import Slider from "./components/Slider.vue";
 import Calculator from "./components/Calculator.vue";
 import ReuseableModal from "./components/ReuseableModal.vue";
+import Chat from "./components/Chat.vue";
 
 const routes = [
     {
@@ -42,6 +43,11 @@ const routes = [
         path: "/resuseable-modal",
         name: "resuseable-modal",
         component: ReuseableModal,
+    },
+    {
+        path: "/chat",
+        name: "chat",
+        component: Chat,
     }
 ];
 
